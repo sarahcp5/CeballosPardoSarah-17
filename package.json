@@ -1,0 +1,24 @@
+{
+  "name": "ceballospardosarah-17",
+  "version": "1.0.0",
+  "description": "Desplegar nuestro proyecto en la nube",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarahcp5/CeballosPardoSarah-17.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarahcp5/CeballosPardoSarah-17/issues"
+  },
+  "homepage": "https://github.com/sarahcp5/CeballosPardoSarah-17#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
