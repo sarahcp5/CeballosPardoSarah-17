@@ -6,7 +6,8 @@ const router = Router();
 
 router.get("/", async(req, res) => {
     try {
-        res.render('registerForm');
+        res.render('register');
+      //  res.render('registerForm');
     } catch (error) {
         console.error("Error formulario Register", error)
     }
