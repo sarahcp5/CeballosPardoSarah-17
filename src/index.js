@@ -2,12 +2,12 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import __dirname from './utils.js';
 import { Server } from 'socket.io';
-import services from "./dao/config.jsig.js";
+import services from "../src/dao/config.js";
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import viewsRouter from './routes/views.router.js';
 import sessionsRouter from './routes/sessions.router.js';
-import initializePassport from './config/passport.config.js.config.js';
+import initializePassport from '../src/config/passport.config.js';
 import passport from 'passport';
 
 const app = express();
