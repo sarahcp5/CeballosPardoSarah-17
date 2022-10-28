@@ -13,9 +13,9 @@ function render(data) {
     if(data.compr != undefined) {
         $("#compr").append(`(Comprensión ` + `${data.compr}` + `%)`);
     }
-
-   data.forEach((elem) => {
-        $("#messages").append(`
+    const messages = document.getElementById('messages');
+    data.forEach((elem) => {
+        messages.append(`
             <div> 
                 <strong class="text-primary">${elem.author.email}</strong>
                 <em class="text-brown">[${elem.date}]: </em> 
@@ -36,7 +36,9 @@ async function renderTable(productsData) {
     $("#tableProducts").append(html);
 }
 
-$("#formChat").submit((e) => {
+const formChat = document.getElementById('formChat');
+
+formChat.addEventListener('submit',async(e) => {
     e.preventDefault();
     const menssage = {
         author: {
@@ -55,7 +57,9 @@ $("#formChat").submit((e) => {
     emptyInput('#message');
 });
 
-$("#formProduct").submit(async(e) => {
+const formProduct = document.getElementById('formProduct');
+
+formProduct.addEventListener('submit',async(e) => {
     e.preventDefault();
     const product = {
         title: $('#title').val(),
