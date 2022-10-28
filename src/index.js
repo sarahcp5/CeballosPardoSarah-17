@@ -36,7 +36,7 @@ app.engine(
     handlebars.engine()
 );
 
-app.set('views', __dirname + '/src/views');
+app.set('views','/src/views');
 app.set('view engine', 'handlebars');
 
 
