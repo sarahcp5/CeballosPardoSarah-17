@@ -13,9 +13,8 @@ function render(data) {
     if(data.compr != undefined) {
         $("#compr").append(`(Comprensión ` + `${data.compr}` + `%)`);
     }
-    const messages = document.getElementById('messages');
     data.forEach((elem) => {
-        messages.append(`
+        $("#messages").append(`
             <div> 
                 <strong class="text-primary">${elem.author.email}</strong>
                 <em class="text-brown">[${elem.date}]: </em> 

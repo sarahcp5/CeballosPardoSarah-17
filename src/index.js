@@ -43,7 +43,7 @@ app.engine(
     handlebars.engine()
 );
 
-app.set('views', './views');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'handlebars');
 app.use('/', viewsRouter);
 app.use('/api/sessions', sessionsRouter);
