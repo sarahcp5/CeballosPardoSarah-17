@@ -14,6 +14,11 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
+
+app.engine(
+    "handlebars",
+    handlebars.engine()
+);
 app.use(express.urlencoded({ extended : true }));
 app.use(express.static(__dirname+'/public'));
 
@@ -31,14 +36,11 @@ initializePassport();
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.engine(
-    "handlebars",
-    handlebars.engine()
-);
-
-app.set('views','/src/views');
+app.set('views',__dirname+'/views');
 app.set('view engine', 'handlebars');
 
+app.use('/', viewsRouter);
+app.use('/api/sessions', sessionsRouter);
 
 const server = app.listen(PORT, () => {
     console.log(`Servidor HTTP escuchando en el puerto ${server.address().port}`);
@@ -46,9 +48,6 @@ const server = app.listen(PORT, () => {
 server.on("Error", error => console.log(`Error en servidor ${error}`));
 
 const io = new Server(server);
-
-app.use('/', viewsRouter);
-app.use('/api/sessions', sessionsRouter);
 
 io.on('connection', async(socket) => {
     console.log('Un cliente se ha conectado');
