@@ -2,23 +2,18 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import __dirname from './utils.js';
 import { Server } from 'socket.io';
-import services from "../src/dao/config.js";
+import services from "./dao/config.jsig.js";
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import viewsRouter from './routes/views.router.js';
 import sessionsRouter from './routes/sessions.router.js';
-import initializePassport from '../src/config/passport.config.js';
+import initializePassport from './config/passport.config.js.config.js';
 import passport from 'passport';
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
-
-app.engine(
-    "handlebars",
-    handlebars.engine()
-);
 app.use(express.urlencoded({ extended : true }));
 app.use(express.static(__dirname+'/public'));
 
@@ -36,9 +31,13 @@ initializePassport();
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.set('views',__dirname+'/views');
-app.set('view engine', 'handlebars');
+app.engine(
+    "handlebars",
+    handlebars.engine()
+);
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'handlebars');
 app.use('/', viewsRouter);
 app.use('/api/sessions', sessionsRouter);
 

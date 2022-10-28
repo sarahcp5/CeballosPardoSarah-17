@@ -6,7 +6,7 @@ const router = Router();
 
 router.get("/", async(req, res) => {
     try {
-        res.render('register');
+        res.send({status:"success", message:"Te conectaste por el link de Railway.app"})
       //  res.render('registerForm');
     } catch (error) {
         console.error("Error formulario Register", error)
